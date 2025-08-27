@@ -31,5 +31,3 @@ Notes:
 - The frontend calls: http://localhost:3000/api/gemini
   If you change the port, update app.js accordingly.
 - The Gemini request body is a simple shape; you may need to adapt it if Google updates the API.
-
-If you want a complete React + Express project instead, tell me and I'll prepare that.
