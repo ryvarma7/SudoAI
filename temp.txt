@@ -1,0 +1,91 @@
+Creating and Managing Files
+1. Create Files
+Create three files: file1.txt, file2.txt, and file3.txt using a single command. 
+Create a hidden file named .secret. 
+2. View File Information
+Display detailed information about report.txt. 
+Find the size of a file in human-readable format. 
+Check the type of a file named sample. 
+3. Copy Files
+Copy report.txt to backup.txt. 
+Copy all .txt files into a directory called backup. 
+Copy a directory and all its contents recursively. 
+4. Move and Rename Files
+Rename report.txt to annual_report.txt. 
+Move annual_report.txt to /tmp. 
+5. Delete Files
+Delete a single file. 
+Delete multiple files with one command. 
+Delete a directory and all its contents. 
+
+Exercise Set 2: Viewing File Contents
+1. Display Contents
+View the contents of data.txt. 
+Display the first 10 lines of a file. 
+Display the last 15 lines of a file. 
+2. Counting
+Count lines in a file. 
+Count words in a file. 
+Count characters in a file. 
+
+Exercise Set 3: Searching Files
+1. File Search
+Find a file named config.txt. 
+Find all .conf files in /etc. 
+Find files larger than 50MB. 
+2. Content Search
+Search for the word "Linux" in a file. 
+Search recursively for "password" in a directory. 
+Search ignoring case sensitivity. 
+3. Advanced Search
+Find all files modified within the last 7 days. 
+Find empty files. 
+Find files owned by a specific user. 
+
+Exercise Set 4: Permissions and Ownership
+1. Permissions
+Display file permissions. 
+Give execute permission to the owner. 
+Remove write permission for others. 
+2. Ownership
+Change file ownership to another user. 
+Change group ownership. 
+Change ownership recursively for a directory. 
+3. Permission Scenarios
+Make a file readable only by the owner. 
+Create a script executable by everyone. 
+
+Exercise Set 5: File Compression and Archiving
+1. Compression
+Compress report.txt using gzip. 
+Compress using bzip2. 
+Compress using xz. 
+2. Archive Creation
+Create a tar archive of a directory. 
+Create a compressed tar archive. 
+Extract an archive into a specific directory. 
+
+Exercise Set 6: Redirection and File Manipulation
+1. Output Redirection
+Save command output to a file. 
+Append output to an existing file. 
+Redirect errors to a file. 
+2. Input Redirection
+Use a file as command input. 
+Count words from redirected input. 
+Sort data from a file. 
+3. Combined Redirection
+Save both standard output and errors. 
+Append both outputs to the same file. 
+Discard all output. 
+
+Exercise Set 7: File Processing
+1. Sorting
+Sort names alphabetically. 
+Sort numbers in ascending order. 
+Remove duplicate entries. 
+2. Text Processing
+Display only the first column of a file. 
+Replace all occurrences of a word. 
+Extract lines containing a pattern.
+
