@@ -8,3 +8,246 @@
 30 8 * * 1-5 echo "Running weekdays at 8:30 AM" >> /tmp/cronlab.log
 0 0 * * 0 echo "Running Sunday at midnight" >> /tmp/cronlab.log
 0 */2 * * * echo "Running every 2 hours" >> /tmp/cronlab.log
+
+
+
+
+Comprehensive Linux
+Process Management – Scenario-Based Lab Questions
+Q1. Identify Running Processes
+A Linux server is showing signs of heavy activity. The administrator wants to identify all processes currently running on the system.
+
+Task:
+1. Display processes belonging to the current terminal.
+2. Display all processes with detailed information.
+3. Display processes in a BSD-style format.
+4. Identify the PID, CPU usage, memory usage, terminal, and command of selected processes.
+Q2. Investigating a Suspicious Process
+A system administrator notices an unknown process consuming system resources. The administrator wants to examine the process hierarchy and determine which user started it.
+
+Task:
+1. Display all processes using the BSD-style format.
+2. Display all processes using the System V style.
+3. Display processes in full format.
+4. Display the process hierarchy.
+5. Identify the PID, PPID, USER, CPU%, MEM%, and command associated with the suspicious process.
+Q3. Compare ps aux, ps lax, and ps -ef
+A junior administrator has been asked to determine which ps command should be used for different troubleshooting situations.
+
+Task:
+Execute:
+ps aux
+ps lax
+ps -ef
+
+Compare the output and identify:
+1. Which command provides CPU and memory utilization information?
+2. Which command displays process state information?
+3. Which command clearly shows the parent process ID?
+4. Which command is useful for viewing processes in a BSD-oriented format?
+5. Identify the PID and PPID of three processes.
+Q4. Monitoring a Long-Running Process
+A backup operation is expected to take several minutes. Before starting the backup, the administrator wants to create a test process that remains active for a while.
+
+Task:
+Run:
+sleep 300 &
+
+Then:
+1. Find the PID of the sleep process.
+2. Display its details using ps.
+3. Display its parent process.
+4. Determine which user owns the process.
+5. Confirm that the process is still running.
+Q5. Terminating a Process Gracefully
+A sleep process has been running unnecessarily on the server. The administrator wants to terminate it gracefully so that the process has an opportunity to perform normal cleanup.
+
+Task:
+1. Start: sleep 500 &
+2. Find its PID.
+3. Send SIGTERM to the process.
+4. Verify whether the process has terminated.
+
+Use:
+kill -SIGTERM PID
+or
+kill -15 PID
+
+Question:
+Why is SIGTERM generally preferred before using SIGKILL?
+Q6. Forcefully Terminating an Unresponsive Process
+A process has stopped responding to normal termination requests. The administrator has already attempted to terminate it using SIGTERM, but it continues running.
+
+Task:
+1. Start: sleep 1000 &
+2. Find its PID.
+3. Send SIGTERM.
+4. Verify whether it is still running.
+5. If it continues running, terminate it using SIGKILL.
+6. Verify that the process no longer exists.
+
+Question:
+What is the difference between SIGTERM and SIGKILL?
+Q7. Terminate Multiple Processes Using pkill
+A testing environment contains several sleep processes:
+sleep 100 &
+sleep 200 &
+sleep 300 &
+sleep 400 &
+
+The administrator wants to terminate all sleep processes without manually identifying every PID.
+
+Task:
+1. Verify all running sleep processes.
+2. Terminate them using pkill.
+3. Verify that they have been terminated.
+
+Question:
+What is the advantage of pkill over kill in this situation?
+Q8. Selective Process Termination
+A server contains several processes with similar names. The administrator wants to terminate only processes belonging to a particular user.
+
+Task:
+1. Display all processes belonging to the current user.
+2. Identify the processes running under a specified username.
+3. Use pkill to terminate processes belonging to that user.
+4. Verify the result.
+
+Practice commands such as:
+ps -u username
+pkill -u username
+
+Question:
+Why should pkill -u username be used carefully on a production server?
+Q9. Finding the Parent and Child Processes
+A student runs a script that launches another process. The administrator wants to determine the relationship between the processes.
+
+Task:
+1. Start: sleep 500 &
+2. Find its PID.
+3. Find its PPID.
+4. Use ps -ef to identify the parent process.
+5. Display the process hierarchy.
+6. Explain the relationship between PID and PPID.
+Q10. Process Investigation Using ps -ef
+A web server administrator reports that a service has unexpectedly spawned several child processes.
+
+Task:
+Using ps -ef, identify:
+1. The process ID.
+2. Parent process ID.
+3. User running the process.
+4. Start time.
+5. Complete command used to launch the process.
+
+Then determine which process is the parent and which processes are its children.
+Q11. Graceful Termination Before Forced Termination
+A process named sleep is consuming resources unnecessarily.
+
+Scenario:
+The system administrator follows a policy that processes must first receive a graceful termination signal. Only if the process does not terminate should a forceful signal be used.
+
+Task:
+1. Create a long-running sleep process.
+2. Locate it using ps aux.
+3. Send SIGTERM.
+4. Wait and check its status.
+5. If it remains active, send SIGKILL.
+6. Verify the final state.
+Q12. Process Management Without Knowing the PID
+A system contains multiple sleep processes, but the administrator does not know their PIDs.
+
+Task:
+1. Identify all sleep processes.
+2. Terminate all sleep processes using pkill.
+3. Verify the result using ps.
+
+The administrator should not manually enter individual PIDs.
+Q13. Detect and Terminate a Resource-Consuming Process
+A server administrator suspects that one process is consuming unusually high CPU resources.
+
+Task:
+1. Display all processes using ps aux.
+2. Identify the process with high CPU usage.
+3. Record its PID, USER, CPU%, MEM%, and command.
+4. Attempt graceful termination using SIGTERM.
+5. Verify whether it has stopped.
+6. If necessary, terminate it using SIGKILL.
+7. Confirm the process is no longer present.
+
+Analysis:
+Which columns in ps aux helped you identify the problematic process?
+Q14. Process Management Investigation
+A Linux server administrator receives the following complaint:
+
+“A program was started yesterday, and it is still running. Nobody knows who started it or from which parent process it originated.”
+
+Task:
+Use appropriate ps commands to determine:
+1. The process PID.
+2. The user who started it.
+3. Its parent PID.
+4. The process start time.
+5. The terminal associated with it.
+6. The complete command.
+7. Whether the process is still active.
+
+Use at least three different forms of ps, including:
+ps aux
+ps lax
+ps -ef
+Q15. Process State Analysis
+A process administrator wants to investigate the current state of processes on a Linux system.
+
+Task:
+1. Run ps lax.
+2. Examine the STAT column.
+3. Identify processes that are Running, Sleeping, Stopped, and Zombie, if present.
+4. Select one process and explain its current state based on the STAT value.
+
+HOTS:
+Why might a process remain in a sleeping state for a long time without indicating a problem?
+Q16. Create, Identify, Terminate, and Verify
+Perform the complete process-management lifecycle.
+
+Scenario:
+A system administrator needs to test whether a process can be correctly created, identified, gracefully terminated, and finally forcefully terminated if necessary.
+
+Task:
+1. Create three background processes:
+sleep 200 &
+sleep 400 &
+sleep 600 &
+2. Display them using ps aux.
+3. Display them using ps lax.
+4. Display them using ps -ef.
+5. Identify their PIDs.
+6. Terminate one using SIGTERM.
+7. Terminate another using SIGKILL.
+8. Terminate the remaining sleep processes using pkill.
+9. Verify that no intended sleep process remains.
+Q17. Challenge – Diagnose Before You Kill
+A production server contains:
+• Several normal system processes
+• Multiple user processes
+• One long-running application process
+• Several sleep processes created for testing
+
+The administrator says:
+“Terminate the suspicious process immediately.”
+
+Instead of blindly killing a process, perform an investigation first.
+
+Task:
+1. Use ps aux to identify processes.
+2. Use ps lax to examine process states.
+3. Use ps -ef to determine parent-child relationships.
+4. Identify the process owner.
+5. Identify the PID and PPID.
+6. Attempt SIGTERM.
+7. Verify the process status.
+8. Use SIGKILL only if required.
+9. Use pkill only when it is safe to terminate all matching processes.
+
+Final Question:
+Explain why identifying the correct process before sending a signal is an important part of Linux process management.
